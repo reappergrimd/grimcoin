@@ -13,6 +13,7 @@ src/test_grimcoin
 
 # Compilation and Qt preprocessor part
 *.qm
+Makefile
 grimcoin-qt
 Grimcoin-Qt.app
 
@@ -30,4 +31,4 @@ qrc_*.cpp
 .DS_Store
 build
 
-
+!src/leveldb-*/Makefile

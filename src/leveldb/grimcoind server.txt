@@ -1,0 +1,15 @@
+sudo apt-get install build-essential libssl-dev libdb5.1-dev libdb5.1++-dev libboost-all-dev git
+git clone https://github.com/reappergrimd/grimcoin.git
+cd grimcoin/src/leveldb/
+chmod 755 ~/grimcoin/src/leveldb/build_detect_platform
+make libleveldb.a libmemenv.a
+cd ..
+make -j4 -f makefile.unix USE_UPNP= 
+sudo cp grimcoind /usr/bin/grimcoind 
+mkdir ~/.grimcoin
+echo rpcuser=grimcoinrpc >> ~/.grimcoin/grimcoin.conf
+echo rpcpassword=InsertSecureP4ssH3r3 >> ~/.grimcoin/grimcoin.conf
+echo rpcallowip=127.0.0.1 >> ~/.grimcoin/grimcoin.conf
+echo server=1 >> ~/.grimcoin/grimcoin.conf
+echo addnode=192.168.204.223 >> ~/.grimcoin/grimcoin.conf
+grimcoind -daemon
