@@ -1,0 +1,9 @@
+Building Grimcoin
+
+See doc/readme-qt.rst for instructions on building Grimcoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Grimcoin.
+
+See doc/build-*.txt for instructions on building grimcoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Grimcoin.
