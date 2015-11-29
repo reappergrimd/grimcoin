@@ -31,8 +31,8 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x54bb44364bfe8b6432e6f6b347fbe55dfa689e47e66d4e3a26f1a26bb818dc8b");
-static CBigNum bnProofOfWorkLimit = CBigNum().SetCompact(520343692); // Grimcoin: starting difficulty is 1 / 2^12
+uint256 hashGenesisBlock("0x35059669fb996516eb4979c8d255c9efdfccd4132dab38a9fc03f2f5f11e6322");
+static CBigNum bnProofOfWorkLimit = CBigNum().SetCompact(521093680); // Grimcoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 uint256 nBestChainWork = 0;
@@ -606,7 +606,7 @@ int64 CTransaction::GetMinFee(unsigned int nBlockSize, bool fAllowFree,
         {
             // Transactions under 10K are free
             // (about 4500 BTC if made of 50 BTC inputs)
-            if (nBytes < 10000)
+            if (nBytes < 1000)
                 nMinFee = 0;
         }
         else
@@ -1079,8 +1079,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 302400; // Grimcoin: 3.5 days
-static const int64 nTargetSpacing = 150; // Grimcoin: 2.5 minutes
+static const int64 nTargetTimespan = 30200; // Grimcoin: 3.5 days
+static const int64 nTargetSpacing = 15000; // Grimcoin: 2.5 minutes
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -2728,7 +2728,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x97e2e90648a63002e7004871222d2d04c33537d5b36c5df77e4e6f6e357aa462");
+        hashGenesisBlock = uint256("0x4bf6d6cd12ae32d63bba46a9eb8752f09db5485ab8b0ceb9677a31d24f244645");
     }
 
     //
@@ -2767,20 +2767,20 @@ bool InitBlockIndex() {
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 50000000000;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("34c2dfcd3812848a67f5eb707f94a29dfeacb7a6f5c1f585b245c2812a7dd71948a994327ec1744fcc9a5cdbfea18364c5f2bec6e14ee5a6a5f589d21526b824d8") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("e0e775b52dbcf00a31f74cca021bd60a77de3f0e33655b188c1f2cef6d33185191cd126d0abb3ebe1e0bd57954b0e70c1f9577c56ed5eafea0d6d7391650988f9b") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1448753712;
-        block.nBits    = 520343692;
-        block.nNonce   = 503857379;
+        block.nTime    = 1448763905;
+        block.nBits    = 521093680;
+        block.nNonce   = 214441463;
 
         if (fTestNet)
         {
-            block.nTime    = 1448753712;
-            block.nNonce   = 1529535390;
+            block.nTime    = 1448763905;
+            block.nNonce   = 39233823;
         }
 
         //// debug print
@@ -2788,7 +2788,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x563b18721739762100b947a62e822b2022a8be314a2ab3c8f871c884cbc59f44"));
+        assert(block.hashMerkleRoot == uint256("0x4f7d2ae08257aee5707256afdb5cf0ec21aee66b2ae51c361067ab2019bd7a57"));
         block.print();
         assert(hash == hashGenesisBlock);
 

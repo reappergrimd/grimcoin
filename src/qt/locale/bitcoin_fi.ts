@@ -2237,8 +2237,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="-28"/>
-        <source>Listen for connections on &lt;port&gt; (default: 9333 or testnet: 19333)</source>
-        <translation>Kuuntele yhteyksiä portista &lt;port&gt; (oletus: 9333 tai testnet: 19333)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 19333 or testnet: 29333)</source>
+        <translation>Kuuntele yhteyksiä portista &lt;port&gt; (oletus: 19333 tai testnet: 29333)</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2272,8 +2272,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+27"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 9332 or testnet: 19332)</source>
-        <translation>Kuuntele JSON-RPC -yhteyksiä portista &lt;port&gt; (oletus: 9332 or testnet: 19332)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 19332 or testnet: 29332)</source>
+        <translation>Kuuntele JSON-RPC -yhteyksiä portista &lt;port&gt; (oletus: 19332 or testnet: 29332)</translation>
     </message>
     <message>
         <location line="+37"/>
