@@ -1079,8 +1079,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 30200; // Grimcoin: 3.5 days
-static const int64 nTargetSpacing = 15000; // Grimcoin: 2.5 minutes
+static const int64 nTargetTimespan = 302000; // Grimcoin: 3.5 days
+static const int64 nTargetSpacing = 1500; // Grimcoin: 2.5 minutes
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -2773,14 +2773,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1448763905;
+        block.nTime    = 1448803286;
         block.nBits    = 521093680;
-        block.nNonce   = 214441463;
+        block.nNonce   = 2998422251;
 
         if (fTestNet)
         {
-            block.nTime    = 1448763905;
-            block.nNonce   = 39233823;
+            block.nTime    = 1448803286;
+            block.nNonce   = 2455170273;
         }
 
         //// debug print
