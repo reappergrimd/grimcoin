@@ -11,5 +11,5 @@ echo rpcuser=grimcoinrpc >> ~/.grimcoin/grimcoin.conf
 echo rpcpassword=InsertSecureP4ssH3r3 >> ~/.grimcoin/grimcoin.conf
 echo rpcallowip=127.0.0.1 >> ~/.grimcoin/grimcoin.conf
 echo server=1 >> ~/.grimcoin/grimcoin.conf
-echo addnode=192.168.204.223 >> ~/.grimcoin/grimcoin.conf
+echo addnode=philip.remote.p-and-c-ictsolutions.co.za:8999 >> ~/.grimcoin/grimcoin.conf
 grimcoind -daemon
