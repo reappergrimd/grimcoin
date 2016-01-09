@@ -3,7 +3,7 @@ Grimcoin
 
 First Pool - My boss allowed me to use one of our dev vps boxes...
 -----------
-http://vps.p-and-c-ictsolutions.co.za/MPOS/public/
+http://vps.p-and-c-ictsolutions.co.za/
 
 Wallets 
 -------
