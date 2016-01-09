@@ -1,7 +1,26 @@
-Grimcoin integration/staging tree
+Grimcoin
 ================================
 
-http://www.grimcoin.org
+First Pool - My boss allowed me to use one of our dev vps boxes...
+-----------
+http://vps.p-and-c-ictsolutions.co.za/MPOS/public/
+
+Wallets 
+-------
+
+Linux - Yes
+Windows - No (looking for dev that can help - Share of 0.3% of Master pool reward as bounty)
+
+
+Website
+-------
+New at this so have not had time yet.
+
+Logo / icons
+----
+
+Have one just need to add to source. that is if this coins not just dead in the water ( one i have atleast two registrations in main pool) 
+
 
 Copyright (c) 2009-2013 Bitcoin Developers
 Copyright (c) 2011-2013 Litecoin Developers
@@ -10,6 +29,8 @@ What is Grimcoin?
 ----------------
 
 Grimcoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
+This Coin is a first attempt to build such a coin and to learn from the experiance.
+Expanding ones knowlage of things unknown, makes it a grim task but you still learn.
  - 2.5 minute block targets
  - subsidy halves in 840k blocks (~4 years)
  - ~84 million total coins
@@ -72,3 +93,31 @@ Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
     make -f Makefile.test
     ./grimcoin-qt_test
 
+Tested Ubuntu 12.04 & 14.x Build script
+-------
+**NB**
+Remember to increase Swap to over 2gb. lots of examples but will post more here or in another readme
+******
+
+sudo apt-get install build-essential libssl-dev libdb5.1-dev libdb5.1++-dev libboost-all-dev git
+
+git clone https://github.com/reappergrimd/grimcoin.git
+
+cd grimcoin/src/leveldb/
+
+chmod 755 ~/grimcoin/src/leveldb/build_detect_platform
+
+make libleveldb.a libmemenv.a
+cd ..
+make -j4 -f makefile.unix USE_UPNP=
+chmod 700 
+sudo cp grimcoind /usr/bin/grimcoind 
+chmod 700 /usr/bin/grimcoind
+mkdir ~/.grimcoin
+echo rpcuser=rpc_grimcoin >> ~/.grimcoin/grimcoin.conf
+echo rpcpassword=InsertSecureh3r3 >> ~/.grimcoin/grimcoin.conf
+echo rpcallowip=127.0.0.1 >> ~/.grimcoin/grimcoin.conf
+echo server=1 >> ~/.grimcoin/grimcoin.conf
+echo daemon=1 >> ~/.grimcoin/grimcoin.conf
+echo addnode=vps.p-and-c-ictsolutions.co.za:19333 >> ~/.grimcoin/grimcoin.conf
+grimcoind -daemon
